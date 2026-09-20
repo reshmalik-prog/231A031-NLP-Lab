@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Complaint Router</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+  <header><h1>Campus Complaint Router</h1><p>NLP predicts the department, urgency and the words behind its decision</p></header>
+
+  <section class="card">
+    <h2>Enter a complaint</h2>
+    <textarea id="text" maxlength="500" placeholder="e.g. The wifi in the computer lab is not working"></textarea>
+    <div class="row">
+      <button id="goBtn" class="btn">Route Complaint</button>
+      <button id="clearBtn" class="btn ghost">Clear</button>
+    </div>
+    <p class="hint">Or try a sample:</p><div id="samples"></div>
+  </section>
+
+  <div id="loading" class="loading" style="display:none">Analysing...</div>
+  <div id="error" class="error" style="display:none"></div>
+
+  <section class="card" id="result" style="display:none">
+    <h2>Result</h2>
+    <p class="big">Route to: <b id="dept"></b> <span id="urg" class="badge"></span></p>
+    <p>Confidence: <b id="conf"></b>%</p>
+    <p id="warn" class="warn" style="display:none">Low confidence - please check this routing manually.</p>
+    <h3>Complaint (urgent words highlighted)</h3><div id="highlight" class="box"></div>
+    <h3>Words that influenced the prediction</h3><div id="keywords"></div>
+    <h3>Department scores</h3><canvas id="chart" height="120"></canvas>
+  </section>
+
+  <section class="card" id="historyCard" style="display:none">
+    <h2>Session history</h2>
+    <table id="history"><thead><tr><th>#</th><th>Complaint</th><th>Department</th><th>Urgency</th></tr></thead><tbody></tbody></table>
+    <button id="csvBtn" class="btn ghost">Download CSV</button>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body></html>
