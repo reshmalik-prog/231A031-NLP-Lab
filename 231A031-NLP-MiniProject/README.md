@@ -12,7 +12,7 @@ Colleges receive many complaints that staff must read and forward manually. This
 * Source: Synthetic dataset created for this project with AI assistance (no real student data)
 * Type: Short English text complaints with department labels
 * Size: 96 complaints, 16 per department (balanced across 6 classes)
-* File: `Dataset/complaints.csv`
+* File: `dataset/complaints.csv`
 
 ## Data Preprocessing
 The text was cleaned using the following steps:
@@ -44,7 +44,7 @@ Split: 75% training (72 samples) and 25% testing (24 samples), stratified by dep
 | Logistic Regression | 88% |
 
 * Evaluation: accuracy, precision, recall, F1-score and confusion matrix
-* Output: `Results/confusion_matrix.png`
+* Output: `results/confusion_matrix.png`
 * Observation: The few errors involve IT complaints being confused with Exam and Transport complaints. The test set has only 24 samples, so the gap between the two models is not conclusive.
 
 ## Urgency Detection
@@ -97,14 +97,14 @@ python complaint_router.py
 ```
 Campus-Complaint-Router-NLP
 │
-├── Dataset/
+├── dataset/
 │   └── complaints.csv
 │
-├── Results/
+├── results/
 │   ├── confusion_matrix.png
 │   └── app_screenshot.png
 │
-├── Source Code/
+├── source Code/
 │   ├── app.py
 │   ├── model.py
 │   ├── complaint_router.py
@@ -115,8 +115,6 @@ Campus-Complaint-Router-NLP
 │   └── static/
 │       ├── style.css
 │       └── script.js
-│
-├── AI_Ethics_Declaration_Page.pdf
 └── README.md
 ```
 
